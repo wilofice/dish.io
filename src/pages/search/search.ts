@@ -1,41 +1,36 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import { CreateDishPage } from '../pages';
+/**
+ * Generated class for the SearchPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
   selector: 'page-search',
-  templateUrl: 'search.html'
+  templateUrl: 'search.html',
 })
 export class SearchPage {
 
-  currentItems: any = [];
+	localisation :{ ville: string, zone: string	} = {
+		ville: 'Rabat',
+		zone: 'Agdal-bas (Rabat)'
+	};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
-
-  /**
-   * Perform a service for the proper items.
-   */
-  getItems(ev) {
-    let val = ev.target.value;
-    if (!val || !val.trim()) {
-      this.currentItems = [];
-      return;
-    }
-    this.currentItems = this.items.query({
-      name: val
-    });
+	myIcon: string = 'compass';
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SearchPage');
+  }
+
+
+  load(event){
+  	this.navCtrl.push(CreateDishPage);
   }
 
 }

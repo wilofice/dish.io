@@ -15,6 +15,20 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+ 
+// AF2 Settings
+export const firebaseConfig = {
+    apiKey: "AIzaSyDSQlShtylOT7HtrXBi355vOV9cVWSEWZ0",
+    authDomain: "dish-io.firebaseapp.com",
+    databaseURL: "https://dish-io.firebaseio.com",
+    projectId: "dish-io",
+    storageBucket: "",
+    messagingSenderId: "275904605221"
+  };
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -51,7 +65,9 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
