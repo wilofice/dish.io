@@ -7,48 +7,48 @@ export class Items {
   items: Item[] = [];
 
   defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "name": "super box",
+    "profilePic": "assets/img/speakers/img1.jpg",
+    "about": "super box",
   };
 
 
   constructor() {
     let items = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box."
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       },
       {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       },
       {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "super box",
+        "profilePic": "assets/img/speakers/img1.jpg",
+        "about": "super box"
       }
     ];
 
