@@ -15,6 +15,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 export class WelcomePage {
 
   constructor(public navCtrl: NavController) { }
+  openRestauIndex(){
+    this.navCtrl.push('RestauIndexPage');
+  }
 
   login() {
     this.navCtrl.push('LoginPage');

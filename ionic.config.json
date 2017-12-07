@@ -2,5 +2,7 @@
   "name": "dish.io",
   "app_id": "6fc13470",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

@@ -19,6 +19,7 @@ export class LoginPage {
     password: 'test'
   };
 
+
   // Our translated text strings
   private loginErrorString: string;
 
@@ -31,7 +32,6 @@ export class LoginPage {
       this.loginErrorString = value;
     })
   }
-
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {

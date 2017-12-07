@@ -16,8 +16,7 @@ export class ListMasterPage {
     this.currentItems = this.items.query();
   }
 
-  /**
-   * The view loaded, let's query our items for the list
+  /** The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
   }
