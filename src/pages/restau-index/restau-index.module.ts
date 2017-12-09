@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
+import { Ionic2RatingModule } from "ionic2-rating";
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
-
-import { ItemDetailPage } from './item-detail';
-//import {CardPage} from '../card/card';
+import { RestauIndexPage } from './restau-index';
 
 @NgModule({
   declarations: [
-    ItemDetailPage
+    RestauIndexPage,
   ],
   imports: [
-    IonicPageModule.forChild(ItemDetailPage),
+    IonicPageModule.forChild(RestauIndexPage),
     TranslateModule.forChild()
   ],
-  exports:[
-    ItemDetailPage
-  ]
 })
-export class ItemDetailPageModule { }
+export class RestauIndexPageModule {}

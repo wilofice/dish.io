@@ -11,3 +11,5 @@ export const Tab2Root = 'SearchPage';
 export const Tab3Root = 'SettingsPage';
 export const SearchPage = 'SearchPage';
 export const CreateDishPage = 'DishCreatePage';
+export const RestauIndexPage = 'RestauIndexPage';
+export const PayPage = 'PayPage';

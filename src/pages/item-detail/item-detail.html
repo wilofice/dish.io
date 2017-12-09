@@ -15,4 +15,38 @@
     <h2>{{item.name}}</h2>
     <p>{{item.about}}</p>
   </div>
+  <p>Prix: $50 </p>
+  <ion-card>
+    <ion-card-content>
+      Voulez-vous ajouter des supplements ?<br/>
+      quantité : <input type="number" min="0"/>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block (click)="processPayement()">Commander</button>
+
 </ion-content>
+  
+   <!-- <ion-navbar>
+      <ion-title>{{ item.name }}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+    </div>
+  
+    <div class="item-detail" padding>
+      <h2>{{item.name}}</h2>
+      <p>{{item.about}}</p>
+    </div>
+    <ion-card>
+      <ion-card-content>
+        Voulez-vous ajouter des supplements ?<br/>
+        quantité : <input type="number" min="0"/>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button block>Commander</button>
+      
+  </ion-content> -->

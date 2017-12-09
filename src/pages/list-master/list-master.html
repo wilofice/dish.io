@@ -1,7 +1,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+    <ion-title>
+      <h1>Burger King</h1>
+      <ion-note>
+
+          <p>Description: Burgers,Fast-Food,Poulet,Sandwichs,Cuisine américaine</p><p>Note: 4.5</p>
+      </ion-note>
+     
+    
+    </ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only (click)="addItem()">
@@ -21,9 +29,10 @@
           <img [src]="item.profilePic" />
         </ion-avatar>
         <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
+        <p>{{item.Prix}}DH</p>
         <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
       </button>
+      
 
       <ion-item-options>
         <button ion-button color="danger" (click)="deleteItem(item)">
