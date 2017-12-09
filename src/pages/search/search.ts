@@ -37,4 +37,6 @@ export class SearchPage {
     this.navCtrl.push(RestauIndexPage);
   }
 
+  
+
 }
