@@ -24,7 +24,8 @@
 
 <ion-content padding>
 	<h3>Bienvenue! Quelle est votre localisation?</h3>
-	<form (submit)="doLogin()">
+	<!--<form (submit)="doLogin()">-->
+    <form>
     <ion-list>
 
       <ion-item>
@@ -37,9 +38,10 @@
         <ion-input type="text" [(ngModel)]="localisation.zone" name="zone"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item padding>
         <button ion-button icon-end color="light" >Utiliser votre localisation <ion-icon [name]="myIcon"></ion-icon></button>
       </ion-item>
+      
       <div padding>
         <button ion-button color="primary" block (click)="showRestaurant($event)"> Voir les restaurants</button>
       </div>

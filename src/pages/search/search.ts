@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreateDishPage, RestauIndexPage } from '../pages';
+import { CreateDishPage, RestauIndexPage } from './../pages';
 /**
  * Generated class for the SearchPage page.
  *

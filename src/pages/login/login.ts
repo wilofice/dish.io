@@ -35,6 +35,7 @@ export class LoginPage {
   }
   // Attempt to login in through our User service
   doLogin() {
+    console.log("in do login");
     this.user.login(this.account).subscribe((resp) => {
       this.navCtrl.push(SearchPage);
     }, (err) => {
