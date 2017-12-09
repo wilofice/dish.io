@@ -7,48 +7,44 @@ export class Items {
   items: Item[] = [];
 
   defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "restaurant":"Addik",
+    "name": "Cheese Burger",
+    "profilePic": "assets/img/speakers/cheese-burger.jpg",
+    "Prix": 25
   };
 
 
   constructor() {
     let items = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "name": "Cheese Burger",
+        "profilePic": "assets/img/speakers/cheese-burger.jpg",
+        "Prix": 25
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "name": "Sandwich Dinde",
+        "profilePic": "assets/img/speakers/sandwich-dinde.jpg",
+        "Prix": 20
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "name": "Cheese Burger",
+        "profilePic": "assets/img/speakers/cheese-burger.jpg",
+        "Prix": 25
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "name": "Sandwich Dinde",
+        "profilePic": "assets/img/speakers/sandwich-dinde.jpg",
+        "Prix": 20
       },
       {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        "name": "Cheese Burger",
+        "profilePic": "assets/img/speakers/cheese-burger.jpg",
+        "Prix": 25
       },
       {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
-      },
-      {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Sandwich Dinde",
+        "profilePic": "assets/img/speakers/sandwich-dinde.jpg",
+        "Prix": 20
       }
     ];
 
