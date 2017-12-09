@@ -4,13 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
+import { SearchPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 @Component({
-  template: `<ion-menu [content]="content">
+  template: `<ion-menu [content]="content"  persistent="true">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -23,14 +24,17 @@ import { Settings } from '../providers/providers';
     </ion-content>
 
   </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  <ion-nav #content [root]="rootPage">
+   
+  </ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+  //rootPage = FirstRunPage;
+  rootPage = SearchPage;
 
   @ViewChild(Nav) nav: Nav;
 
-  pages: any[] = [
+ /* pages: any[] = [
     { title: 'Tutorial', component: 'TutorialPage' },
     { title: 'Welcome', component: 'WelcomePage' },
     { title: 'Tabs', component: 'TabsPage' },
@@ -42,6 +46,13 @@ export class MyApp {
     { title: 'Menu', component: 'MenuPage' },
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' }
+  ]*/
+
+  pages: any[] = [
+    { title: 'Welcome', component: 'WelcomePage' },
+    { title: 'Search', component: 'SearchPage' },
+    { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Logout', component: 'ContentPage' }
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
@@ -56,13 +67,13 @@ export class MyApp {
 
   initTranslate() {
     // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('en');
-
-    if (this.translate.getBrowserLang() !== undefined) {
+    this.translate.setDefaultLang('fr');
+    this.translate.use('fr');
+    /*if (this.translate.getBrowserLang() !== undefined) {
       this.translate.use(this.translate.getBrowserLang());
     } else {
-      this.translate.use('en'); // Set your language here
-    }
+      this.translate.use('fr'); // Set your language here
+    }*/
 
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);

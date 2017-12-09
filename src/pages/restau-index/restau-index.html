@@ -7,7 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>restauIndex</ion-title>
+      <!--<button start ion-button menuToggle>
+          <ion-icon name="menu" icon-start></ion-icon>
+      </button>-->
+  
+    <ion-title>Liste des Restaurants</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,7 +27,7 @@
   </div>
   <ion-list>
 
-    <ion-item>
+    <ion-item detail-push navPush="ListMasterPage">
       <ion-avatar item-start>
         <img src="assets/img/restau.jpg">
       </ion-avatar>
@@ -36,12 +40,12 @@
           <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
 
         </span>
-      <h2>Marty McFly</h2>
+      <h2>Burger King</h2>
       <ion-note>
         fast-food, burgers
       </ion-note>
     </ion-item>
-    <ion-item>
+    <ion-item detail-push navPush="ListMasterPage">
       <ion-avatar item-start>
         <img src="assets/img/restau.jpg">
       </ion-avatar>
@@ -59,5 +63,5 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button block (click)="openPay()" class="pay">{{ 'PAY' | translate }}</button>
+  <!--<button ion-button block (click)="openPay()" class="pay">{{ 'PAY' | translate }}</button>-->
 </ion-content>
