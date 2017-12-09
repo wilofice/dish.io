@@ -8,12 +8,15 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import{Stripe} from '@ionic-native/stripe';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+//import {CardPage} from '../pages/card/card';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -55,6 +58,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   imports: [
+    Ionic2RatingModule,
     BrowserModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -77,6 +81,7 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
+    Stripe,
     Camera,
     SplashScreen,
     StatusBar,
