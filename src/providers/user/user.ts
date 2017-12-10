@@ -3,7 +3,8 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import {UserModel} from './../../models/user/user.model';
 /**
  * Most apps have the concept of a User. This is a simple provider
  * with stubs for login/signup/etc.
@@ -27,7 +28,8 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  private userListRef = this.db.list<UserModel>('users');
+  constructor(public api: Api, private db: AngularFireDatabase) { }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -54,18 +56,20 @@ export class User {
    * the user entered on the form.
    */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
 
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
+    
+      var usermodel: UserModel = {
+        username: accountInfo.username,
+        nom: accountInfo.nom,
+        prenom: accountInfo.prenom,
+        email: accountInfo.email,
+        password: accountInfo.password,
+        tel: accountInfo.tel,
+        address:accountInfo.address,
+        type: accountInfo.type
       }
-    }, err => {
-      console.error('ERROR', err);
-    });
 
-    return seq;
+      return this.userListRef.push(usermodel);
   }
 
   /**

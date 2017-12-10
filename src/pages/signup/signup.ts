@@ -14,10 +14,15 @@ export class SignupPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { name: string, email: string, password: string } = {
-    name: '',
+  account: { username: string, nom: string, prenom: string, email: string, password: string, tel: string, address: string, type: string} = {
+    username: '',
+    nom: '',
+    prenom: '',
     email: '',
-    password: ''
+    password: '',
+    tel: '',
+    address: '',
+    type: 'restaurant'
   };
 
   // Our translated text strings
@@ -35,7 +40,8 @@ export class SignupPage {
 
   doSignup() {
     // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
+    this.user.signup(this.account).then((ref) => {
+      console.log(ref);
       this.navCtrl.push(MainPage);
     }, (err) => {
 
@@ -49,5 +55,10 @@ export class SignupPage {
       });
       toast.present();
     });
+  }
+
+
+  getType() {
+    return !(this.account.type === "restaurant");
   }
 }

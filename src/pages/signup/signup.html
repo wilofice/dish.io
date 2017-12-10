@@ -10,14 +10,23 @@
 <ion-content>
   <form (submit)="doSignup()">
     <ion-list>
+        <ion-item >
+            <ion-label stacked>{{ 'USERNAME' | translate }}</ion-label>
+            <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      <ion-item >
+        <ion-label stacked>{{ 'NAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.nom" name="nom"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="getType()">
+          <ion-label stacked>{{ 'PRENOM' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="account.prenom" name="prenom"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label stacked>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
       </ion-item>
 
@@ -30,15 +39,40 @@
       </ion-item>
       -->
 
+
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label stacked>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>
 
-      <div padding>
-        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
-      </div>
+      <ion-item>
+          <ion-label stacked>{{ 'TEL' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="account.tel" name="tel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked>{{ 'ADDRESS' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="account.address" name="address"></ion-input>
+      </ion-item>
+
+      
+
+      <ion-list radio-group [(ngModel)]="account.type" name="type">
+          <ion-item>
+            <ion-label>Je suis un restaurant</ion-label>
+            <ion-radio value="restaurant" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Je suis un client</ion-label>
+            <ion-radio value="client"></ion-radio>
+          </ion-item>
+      </ion-list>
 
     </ion-list>
+
+
+    <div padding>
+        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+      </div>
   </form>
 </ion-content>

@@ -44,5 +44,9 @@
 
   "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Recherche"
+  "SEARCH_TITLE": "Recherche",
+  "ADDRESS": "Addresse",
+  "TEL": "Telephone",
+  "PRENOM": "Prenom",
+  "USERNAME": "Login"
 }
