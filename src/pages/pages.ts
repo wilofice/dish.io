@@ -13,3 +13,6 @@ export const SearchPage = 'SearchPage';
 export const CreateDishPage = 'DishCreatePage';
 export const RestauIndexPage = 'RestauIndexPage';
 export const PayPage = 'PayPage';
+export const RestaurantHomePage = 'RestaurantHomePage';
+export const SignUpPage = 'SignupPage';
+export const LogonPage = 'LoginPage';

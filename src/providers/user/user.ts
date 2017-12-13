@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Api } from '../api/api';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {UserModel} from './../../models/user/user.model';
+import { Observable } from 'rxjs/Observable';
 /**
  * Most apps have the concept of a User. This is a simple provider
  * with stubs for login/signup/etc.
@@ -36,19 +37,9 @@ export class User {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+    this.userListRef = this.db.list<UserModel>('users', ref => ref.orderByChild('username').equalTo(accountInfo.email));
 
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-    return seq;
+    return this.userListRef;
   }
 
   /**
