@@ -13,7 +13,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 export class RestaurantProvider {
 
-  private restaurantListRef = this.db.list<Restaurant>('users');
+  private restaurantList : any;
+  private restaurantListRef = this.db.list<Restaurant>('restaurants');
 
   constructor(private db: AngularFireDatabase) {
 
@@ -31,7 +32,8 @@ export class RestaurantProvider {
     this.restaurantListRef.push(restau);
   }
   getRestaurants(){
-    return this.restaurantListRef.valueChanges;
+   this.restaurantListRef.valueChanges().subscribe(res => this.restaurantList = res);
+   return this.restaurantList;
   }
 
 }

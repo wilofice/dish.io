@@ -26,10 +26,11 @@ export class HomePage {
   places: Array<any>;
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  public restaurantList: Array<any>;
+  private restaurantList: any;
 
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation, public restaurantProvider: RestaurantProvider) {
+    this.restaurantList = this.restaurantProvider.getRestaurants();
   }
 
   ionViewDidLoad() {
