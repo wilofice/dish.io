@@ -6,6 +6,7 @@ import { Api } from '../api/api';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {UserModel} from './../../models/user/user.model';
 import { Observable } from 'rxjs/Observable';
+//import * as firebase from 'firebase';
 /**
  * Most apps have the concept of a User. This is a simple provider
  * with stubs for login/signup/etc.
@@ -28,7 +29,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class User {
   _user: any;
-
+  
   private userListRef = this.db.list<UserModel>('users');
   constructor(public api: Api, private db: AngularFireDatabase) { }
 
@@ -36,8 +37,10 @@ export class User {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
+
+ 
   login(accountInfo: any) {
-    this.userListRef = this.db.list<UserModel>('users', ref => ref.orderByChild('username').equalTo(accountInfo.email));
+    this.userListRef = this.db.list<UserModel>('users', ref => ref.orderByChild('username').equalTo(accountInfo.username));
 
     return this.userListRef;
   }
