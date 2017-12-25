@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import{Stripe} from '@ionic-native/stripe';
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
@@ -22,6 +23,7 @@ import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
  
 // AF2 Settings
 
@@ -72,6 +74,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [
+    Geolocation,
     Api,
     Items,
     User,
@@ -81,7 +84,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    RestaurantProvider
   ]
 })
 export class AppModule { }
