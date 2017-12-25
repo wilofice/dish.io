@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import{Restau} from "../../models/Restau";
+import{Restaurant} from "../../models/restaurant/restaurant.model";
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 /*
@@ -12,15 +13,25 @@ import{Restau} from "../../models/Restau";
 @Injectable()
 export class RestaurantProvider {
 
+  private restaurantListRef = this.db.list<Restaurant>('users');
 
-  constructor(public http: HttpClient,public restaus:Array<any>) {
+  constructor(private db: AngularFireDatabase) {
 
   }
   addRestaus(nameRestaurant:string,rating:number){
-    this.restaus.push({nom:nameRestaurant,rating:rating});
+    var restau: Restaurant = {
+      username: nameRestaurant,
+      name: "",
+      email: "",
+      password: "",
+      tel: "",
+      address: "",
+      rating: rating
+    }
+    this.restaurantListRef.push(restau);
   }
   getRestaurants(){
-    return this.restaus;
+    return this.restaurantListRef.valueChanges;
   }
 
 }

@@ -6,4 +6,5 @@ export interface Restaurant {
 	password: string;
 	tel: string;
 	address: string;
+	rating: number;
 }
