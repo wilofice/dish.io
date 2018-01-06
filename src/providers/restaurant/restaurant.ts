@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import{Restaurant} from "../../models/restaurant/restaurant.model";
 import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from "firebase";
+
 
 
 /*
@@ -12,15 +14,20 @@ import { AngularFireDatabase } from 'angularfire2/database';
 */
 @Injectable()
 export class RestaurantProvider {
+  public restaurants: firebase.database.Reference;
+  public restaurantList : any;
 
-  private restaurantList : any;
-  private restaurantListRef = this.db.list<Restaurant>('restaurants');
+  //restaurants:FirebaseListObservable<any[]>;
+  private restaurantListRef ;//= this.db.list<Restaurant>('/restaurants').valueChanges();
 
   constructor(private db: AngularFireDatabase) {
+    this.restaurants=firebase.database().ref("restaurants");
+    this.restaurantListRef = this.db.list<Restaurant>('restaurants');
+
 
   }
   addRestaus(nameRestaurant:string,rating:number){
-    var restau: Restaurant = {
+    let restau: Restaurant = {
       username: nameRestaurant,
       name: "",
       email: "",
@@ -28,12 +35,18 @@ export class RestaurantProvider {
       tel: "",
       address: "",
       rating: rating
-    }
+    };
     this.restaurantListRef.push(restau);
+    this.restaurantList=firebase.database().ref('restaurants');
   }
-  getRestaurants(){
-   this.restaurantListRef.valueChanges().subscribe(res => this.restaurantList = res);
-   return this.restaurantList;
+  getRestaurants() {
+
+     this.restaurantListRef.valueChanges().subscribe(res => {
+      this.restaurantList = res;
+    });
+    return this.restaurantListRef;
+
   }
+
 
 }
