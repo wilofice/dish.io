@@ -21,10 +21,10 @@ export class PayPage {
   }
 
  processpay(){
-  this.navCtrl.push(CardPage);
+  
  }
  payByStipe(){
-
+  this.navCtrl.push(CardPage);
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PayPage');
