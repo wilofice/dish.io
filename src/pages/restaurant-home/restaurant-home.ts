@@ -5,6 +5,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 import {Dish} from './../../models/dish/dish';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
+import { CommandListPage } from '../pages';
 /**
  * Generated class for the RestaurantHomePage page.
  *
@@ -84,6 +85,10 @@ export class RestaurantHomePage {
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
+  }
+
+  showCommand(){
+    this.navCtrl.push(CommandListPage, {restaurant: this.restaurant});
   }
 
 }

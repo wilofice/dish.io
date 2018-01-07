@@ -17,3 +17,5 @@ export const HomePage = 'HomePage';
 export const RestaurantHomePage = 'RestaurantHomePage';
 export const SignUpPage = 'SignupPage';
 export const LogonPage = 'LoginPage';
+export const CommandListPage = 'CommandListPage'; 
+export const CommandDetailPage = 'CommandDetailPage';

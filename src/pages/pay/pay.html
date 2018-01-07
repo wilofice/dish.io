@@ -14,44 +14,48 @@
 
 
 <ion-content padding>
-  <h3>Commande</h3><br/>
-<ion-card>
-  <ion-card-content>
-    <b>Facture</b>
+  <h3>Commande</h3>
+  <br/>
+  <ion-card>
+    <ion-card-content>
+      <b>Facture</b>
       <ion-row>
-      <ion-col col-6><b>{{item.name}}</b></ion-col>
-      <ion-col col-3>{{item.prix}}</ion-col>
-      <ion-col col-3>{{quantite}} plats</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>Total</ion-col>
-      <ion-col col-6>{{total}} DH</ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-  <button ion-button block (click)="payByStipe()">Payer par Carte</button><br/>
+        <ion-col col-6>
+          <b>{{item.name}}</b>
+        </ion-col>
+        <ion-col col-3>{{item.prix}}</ion-col>
+        <ion-col col-3>{{quantite}} plats</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>Total</ion-col>
+        <ion-col col-6>{{total}} DH</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block (click)="payByStipe()">Payer par Carte</button>
+  <br/>
   <hr/>
   <h5>Payer à la livraison</h5>
   <form (submit)="processpay()">
     <ion-list>
-        <!--<ion-item>
-            <ion-label floating>Nom </ion-label>
-            <ion-input type="text" [(ngModel)]="nom" name="phone"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label floating>Prénom</ion-label>
-              <ion-input type="text" [(ngModel)]="prenom" name="phone"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Addresse de livraison </ion-label>
-                <ion-input type="text" [(ngModel)]="addresseDeLivraison" name="phone"></ion-input>
-              </ion-item>-->
+      <ion-item>
+        <ion-label floating>Nom </ion-label>
+        <ion-input type="text" [(ngModel)]="nom" name="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Prénom</ion-label>
+        <ion-input type="text" [(ngModel)]="prenom" name="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Addresse de livraison </ion-label>
+        <ion-input type="text" [(ngModel)]="addresseDeLivraison" name="phone"></ion-input>
+      </ion-item>
       <ion-item>
         <ion-label floating>Télephone </ion-label>
         <ion-input type="text" [(ngModel)]="phone" name="phone"></ion-input>
       </ion-item>
       <div padding>
-        <button ion-button color="primary" block> payer à livraison</button>
+        <button ion-button color="primary" block> Envoyer la commande</button>
       </div>
     </ion-list>
   </form>

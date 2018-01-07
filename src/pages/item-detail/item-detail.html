@@ -8,8 +8,8 @@
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic >
-      <ion-img [width]="imgWidth" [height]="imgHeight" [src]="item.image"></ion-img>
+  <div class="item-profile" text-center #profilePic>
+    <ion-img [width]="imgWidth" [height]="imgHeight" [src]="item.image"></ion-img>
   </div>
 
   <div class="item-detail" padding>
@@ -17,16 +17,22 @@
     <p>{{item.description}}</p>
     <p>Prix: {{item.prix}} </p>
     <ion-card>
-        <ion-card-content>
-          Quantité : <input type="number" [(ngModel)]="quantite" min="0"/>
-        </ion-card-content>
-      </ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            
+            <ion-label fixed>Quantité </ion-label>
+            <ion-input type="number" [(ngModel)]="quantite" min="1"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
   </div>
-   <button ion-button block (click)="processPayement()">Commander</button>
+  <button ion-button block (click)="processPayement()">Commander</button>
 
 </ion-content>
-  
-   <!-- <ion-navbar>
+
+<!-- <ion-navbar>
       <ion-title>{{ item.name }}</ion-title>
     </ion-navbar>
   

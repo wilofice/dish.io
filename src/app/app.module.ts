@@ -26,6 +26,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
 import { RestaurantProvider } from '../providers/restaurant/restaurant';
 import { DishServiceProvider } from '../providers/dish-service/dish-service';
 import { SMS } from '@ionic-native/sms';
+import { CommandServiceProvider } from '../providers/command-service/command-service';
  
 // AF2 Settings
 
@@ -89,7 +90,8 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RestaurantProvider,
     DishServiceProvider,
-    SMS
+    SMS,
+    CommandServiceProvider
   ]
 })
 export class AppModule { }

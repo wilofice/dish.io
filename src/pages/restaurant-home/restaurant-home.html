@@ -12,7 +12,11 @@
         <h1 *ngIf="!isAdmin">{{restaurant}}</h1>
         <ion-note>
             <p>Description du restaurant</p><p>Note: 0</p>
-        </ion-note>      
+            <button *ngIf="isAdmin" ion-button color="light" (click)="showCommand()">
+                Voir mes commandes
+            </button>
+        </ion-note>    
+          
       </ion-title>
   
       <ion-buttons end *ngIf="isAdmin">

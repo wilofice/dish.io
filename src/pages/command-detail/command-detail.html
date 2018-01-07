@@ -1,0 +1,31 @@
+<!--
+  Generated template for the CommandDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detail Commande </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="item-detail" padding>
+        <h2>Nom du plat: {{item.dishName}}</h2>
+        <p>Date d'emission: {{item.dateCommand}}</p>
+        <p>Heure : {{item.heureCommand}} </p>
+        <p>Quantite commandée: {{item.quantite}} </p>
+        <p>Total : {{item.total}}</p>
+        <p>Nom du Client: {{item.nomClient}}</p>
+        <p>Prenom du Client: {{item.prenomClient}}</p>
+        <p>Addresse de livraison: {{item.addresseClient}}</p>
+        <p>Telephone: {{item.phoneClient}}</p>
+        <p>Statut commande: {{etatCommande}}</p>
+      </div>
+      <button ion-button block [disabled]="status" (click)="confirmer()">Envoyer Confirmation </button>
+
+</ion-content>
