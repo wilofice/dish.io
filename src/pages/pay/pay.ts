@@ -17,6 +17,8 @@ export class PayPage {
   quantite: number;
   total: number;
   phone: string;
+  restaurantPhone = '00212605063978';
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, private sms: SMS) {
 
     this.item = navParams.get('item');
@@ -27,7 +29,7 @@ export class PayPage {
   
 
  processpay(){
-  this.sms.send(this.phone, 'Votre commande a été correctement reçu! Dish.io.');
+  this.sms.send(this.restaurantPhone, 'Vous avez reçu une commande de ' + this.phone + ' sur Dish.io!.');
  }
  payByStipe(){
 
