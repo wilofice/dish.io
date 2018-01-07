@@ -48,5 +48,6 @@
   "ADDRESS": "Addresse",
   "TEL": "Telephone",
   "PRENOM": "Prenom",
-  "USERNAME": "Login"
+  "USERNAME": "Login",
+  "DELETE_BUTTON": "Supprimer"
 }
