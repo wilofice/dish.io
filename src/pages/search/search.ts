@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreateDishPage, RestauIndexPage } from './../pages';
+import { CreateDishPage, RestauIndexPage, HomePage } from './../pages';
 /**
  * Generated class for the SearchPage page.
  *
@@ -34,9 +34,9 @@ export class SearchPage {
   }
 
   showRestaurant(event){
-    this.navCtrl.push(RestauIndexPage);
-  }
+    //this.navCtrl.push(RestauIndexPage);
+    this.navCtrl.push(HomePage);
 
-  
+  }  
 
 }

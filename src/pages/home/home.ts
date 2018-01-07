@@ -108,7 +108,7 @@ export class HomePage {
           resolve(results);
           for (var i = 0; i < results.length; i++) {
             __this.addRestaurant(results[i].name, results[i].rating);
-            this.infoWindows.push(results[i].name);
+            //this.infoWindows.push(results[i].name);
             console.log("******");
             console.log(results[i]);
           }
