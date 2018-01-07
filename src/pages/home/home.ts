@@ -1,9 +1,8 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {IonicPage, List, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {Geolocation, GeolocationOptions, Geoposition, PositionError} from '@ionic-native/geolocation';
-import {Position} from '@angular/compiler';
-import {NgModule} from '@angular/core/src/metadata/ng_module';
 import {RestaurantProvider} from "../../providers/restaurant/restaurant";
+import {Restaurant} from "../../models/restaurant/restaurant.model";
 
 
 /**
@@ -24,26 +23,29 @@ export class HomePage {
   options: GeolocationOptions;
   currentPos: Geoposition;
   places: Array<any>;
+  public infoWindows:Array<string>=[];
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  private restaurantList: any;
+  public restaurantList: Restaurant[];
 
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation, public restaurantProvider: RestaurantProvider) {
-    this.restaurantList = this.restaurantProvider.getRestaurants();
-  }
 
+    this.restaurantProvider.getRestaurants().valueChanges().subscribe(res => {
+      this.restaurantList = res;
+    });
+  }
   ionViewDidLoad() {
     this.getUserPosition();
-  }
+   //this.restaurantList = this.restaurantProvider.getRestaurants();
 
+}
   getUserPosition() {
     this.options = {
       enableHighAccuracy: false
     };
     this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
       this.currentPos = pos;
-      console.log(pos);
       this.addMap(pos.coords.latitude, pos.coords.longitude);
     }, (err: PositionError) => {
       console.log("Error : " + err.message);
@@ -59,7 +61,6 @@ export class HomePage {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
     this.getRestaurants(latLng).then((results: Array<any>) => {
@@ -70,9 +71,7 @@ export class HomePage {
     }, (status) => console.log(status));
 
     this.addMarker();
-
   }
-
   addMarker() {
 
     let marker = new google.maps.Marker({
@@ -91,15 +90,9 @@ export class HomePage {
     });
 
   }
-
   addRestaurant(name: string, rating: number) {
-   // debugger;
-
-    console.log("********\t" + this.restaurantProvider);
-  //  debugger;
     this.restaurantProvider.addRestaus(name,rating);
   }
-
   getRestaurants(latLng) {
     var infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(this.map);
@@ -115,11 +108,10 @@ export class HomePage {
           resolve(results);
           for (var i = 0; i < results.length; i++) {
             __this.addRestaurant(results[i].name, results[i].rating);
-            //console.log(results[i].name);
-
+            this.infoWindows.push(results[i].name);
+            console.log("******");
+            console.log(results[i]);
           }
-
-
         } else {
           reject(status);
         }
@@ -128,13 +120,11 @@ export class HomePage {
     });
 
   }
-
-
   createMarker(place) {
     let marker = new google.maps.Marker({
       map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: place.geometry.location
+      position: place.geometry.location,
+      animation: google.maps.Animation.BOUNCE
     });
   }
 
