@@ -54,7 +54,7 @@ export class User {
     
       var usermodel: UserModel = {
         username: accountInfo.username,
-        nom: accountInfo.nom,
+        name: accountInfo.nom,
         prenom: accountInfo.prenom,
         email: accountInfo.email,
         password: accountInfo.password,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SMS } from '@ionic-native/sms';
 /**
  * Generated class for the PayPage page.
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -13,15 +13,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'pay.html',
 })
 export class PayPage {
+  item: any;
+  quantite: number;
+  total: number;
+  phone: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private sms: SMS) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.item = navParams.get('item');
+    this.quantite = navParams.get('quantite');
+    this.total = this.quantite * this.item.prix;
   }
-  commande:any={
-    phone:""
-  }
+
+  
 
  processpay(){
-
+  this.sms.send(this.phone, 'Votre commande a été correctement reçu! Dish.io.');
  }
  payByStipe(){
 

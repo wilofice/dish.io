@@ -63,7 +63,9 @@ callback() {
     toast.present();
     
   } else if (this.data[0].password !== this.account.password){
-    
+    console.log(this.data[0]);
+    console.log(this.data[0].password);
+    console.log(this.account.password);
     //this.navCtrl.setRoot(RestaurantHomePage, {restaurant: this.result});
     let toast = this.toastCtrl.create({
       message: "Votre mot de passe est incorrecte! Veulley réessayer.",
@@ -79,7 +81,7 @@ callback() {
       position: 'bottom'
     });
     toast.present();
-    this.navCtrl.setRoot(RestaurantHomePage, {restaurant: this.data[0]});
+    this.navCtrl.setRoot(RestaurantHomePage, {restaurant: this.data[0], isAdmin: 'true'});
   }
 }
 

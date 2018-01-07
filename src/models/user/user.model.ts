@@ -1,7 +1,7 @@
 export interface UserModel {
     key?: string;
     username: string;
-    nom: string;
+    name: string;
     prenom: string;
 	email: string;
     password: string;

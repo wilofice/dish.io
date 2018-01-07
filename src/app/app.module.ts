@@ -25,7 +25,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { RestaurantProvider } from '../providers/restaurant/restaurant';
 import { DishServiceProvider } from '../providers/dish-service/dish-service';
-
+import { SMS } from '@ionic-native/sms';
  
 // AF2 Settings
 
@@ -88,7 +88,8 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RestaurantProvider,
-    DishServiceProvider
+    DishServiceProvider,
+    SMS
   ]
 })
 export class AppModule { }

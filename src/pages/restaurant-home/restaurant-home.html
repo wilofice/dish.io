@@ -8,13 +8,14 @@
   
     <ion-navbar>
       <ion-title>
-        <h1>{{restaurant.nom}}</h1>
+        <h1 *ngIf="isAdmin">{{restaurant.name}}</h1>
+        <h1 *ngIf="!isAdmin">{{restaurant}}</h1>
         <ion-note>
             <p>Description du restaurant</p><p>Note: 0</p>
         </ion-note>      
       </ion-title>
   
-      <ion-buttons end>
+      <ion-buttons end *ngIf="isAdmin">
         <button ion-button icon-only (click)="addItem()">
           <ion-icon name="add"></ion-icon>
         </button>
@@ -37,7 +38,7 @@
         </button>
         
   
-        <ion-item-options>
+        <ion-item-options *ngIf="isAdmin">
           <button ion-button color="danger" (click)="deleteItem(item)">
             Supprimer
           </button>

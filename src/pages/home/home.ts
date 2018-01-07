@@ -3,6 +3,7 @@ import {IonicPage, NavController} from 'ionic-angular';
 import {Geolocation, GeolocationOptions, Geoposition, PositionError} from '@ionic-native/geolocation';
 import {RestaurantProvider} from "../../providers/restaurant/restaurant";
 import {Restaurant} from "../../models/restaurant/restaurant.model";
+import { RestaurantHomePage } from '../pages';
 
 
 /**
@@ -90,8 +91,8 @@ export class HomePage {
     });
 
   }
-  addRestaurant(name: string, rating: number) {
-    this.restaurantProvider.addRestaus(name,rating);
+  addRestaurant(name: string, rating: number, description: string, icon: string) {
+    this.restaurantProvider.addRestaus(name,rating, description, icon);
   }
   getRestaurants(latLng) {
     var infowindow = new google.maps.InfoWindow();
@@ -107,7 +108,8 @@ export class HomePage {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           resolve(results);
           for (var i = 0; i < results.length; i++) {
-            __this.addRestaurant(results[i].name, results[i].rating);
+            //__this.addRestaurant(results[i].name, results[i].rating, results[i].vicinity, results[i].icon);
+            
             //this.infoWindows.push(results[i].name);
             console.log("******");
             console.log(results[i]);
@@ -128,5 +130,7 @@ export class HomePage {
     });
   }
 
-
+  openItem(item) {
+    this.navCtrl.push(RestaurantHomePage, {restaurant: item.name});
+  }
 }

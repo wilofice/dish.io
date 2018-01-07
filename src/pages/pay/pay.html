@@ -7,36 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>payement</ion-title>
+    <ion-title>Payement</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h3>commande</h3><br/>
+  <h3>Commande</h3><br/>
 <ion-card>
   <ion-card-content>
     <b>Facture</b>
       <ion-row>
-      <ion-col col-6><b>Chawarma</b></ion-col>
-      <ion-col col-3>80DH</ion-col>
-      <ion-col col-3>2 plats</ion-col>
+      <ion-col col-6><b>{{item.name}}</b></ion-col>
+      <ion-col col-3>{{item.prix}}</ion-col>
+      <ion-col col-3>{{quantite}} plats</ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>Total</ion-col>
-      <ion-col col-6>240DH</ion-col>
+      <ion-col col-6>{{total}} DH</ion-col>
     </ion-row>
   </ion-card-content>
 </ion-card>
   <button ion-button block (click)="payByStipe()">Payer par Carte</button><br/>
   <hr/>
-  <ion-note><h5>Ou Payer à la livraison</h5></ion-note>
+  <h5>Payer à la livraison</h5>
   <form (submit)="processpay()">
     <ion-list>
       <ion-item>
         <ion-label floating>Télephone </ion-label>
-        <ion-input type="text" [(ngModel)]="commande.phone" name="phone"></ion-input>
+        <ion-input type="text" [(ngModel)]="phone" name="phone"></ion-input>
       </ion-item>
       <div padding>
         <button ion-button color="primary" block> payer à livraison</button>

@@ -8,21 +8,21 @@
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  <div class="item-profile" text-center #profilePic >
+      <ion-img [width]="imgWidth" [height]="imgHeight" [src]="item.image"></ion-img>
   </div>
 
   <div class="item-detail" padding>
     <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+    <p>{{item.description}}</p>
+    <p>Prix: {{item.prix}} </p>
+    <ion-card>
+        <ion-card-content>
+          Quantité : <input type="number" [(ngModel)]="quantite" min="0"/>
+        </ion-card-content>
+      </ion-card>
   </div>
-  <p>Prix: $50 </p>
-  <ion-card>
-    <ion-card-content>
-      Voulez-vous ajouter des supplements ?<br/>
-      quantité : <input type="number" min="0"/>
-    </ion-card-content>
-  </ion-card>
-  <button ion-button block (click)="processPayement()">Commander</button>
+   <button ion-button block (click)="processPayement()">Commander</button>
 
 </ion-content>
   

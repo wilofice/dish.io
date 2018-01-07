@@ -18,9 +18,9 @@ export class DishServiceProvider {
 
   }
 
-  query(key: string){
+  query(key: string, keyWord: string){
     
-    this.dishesListRef = this.db.list<Dish>('dishes', ref => ref.orderByChild('restaurantKey').equalTo(key));
+    this.dishesListRef = this.db.list<Dish>('dishes', ref => ref.orderByChild(keyWord).equalTo(key));
     return this.dishesListRef;
   }
 
@@ -35,6 +35,8 @@ export class DishServiceProvider {
   delete(dish: Dish){
     this.dishesListRef.remove(dish.key);
   }
+
+
 
 
 

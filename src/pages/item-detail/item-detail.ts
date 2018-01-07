@@ -13,13 +13,15 @@ import { PayPage } from '../pages';
 })
 export class ItemDetailPage {
   item: any;
-
+  imgWidth = '100%';
+  imgHeight = '100%';
+  quantite: number;
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
+    this.item = navParams.get('item');
   }
 
   processPayement(){
-    this.navCtrl.push(PayPage);
+    this.navCtrl.push(PayPage, {item: this.item, quantite: this.quantite});
   }
 
 }

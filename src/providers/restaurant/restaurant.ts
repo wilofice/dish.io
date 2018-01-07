@@ -26,15 +26,17 @@ export class RestaurantProvider {
 
 
   }
-  addRestaus(nameRestaurant:string,rating:number){
+  addRestaus(nameRestaurant:string,rating:number, description: string, icon: string){
     let restau: Restaurant = {
-      username: nameRestaurant,
-      name: "",
+      name: nameRestaurant,
+      username: "",
       email: "",
       password: "",
       tel: "",
       address: "",
-      rating: rating
+      rating: rating,
+      description: description,
+      icon: icon
     };
     this.restaurantListRef.push(restau);
     this.restaurantList=firebase.database().ref('restaurants');

@@ -17,20 +17,32 @@ import { Observable } from 'rxjs/Observable';
   selector: 'page-restaurant-home',
   templateUrl: 'restaurant-home.html',
 })
+
 export class RestaurantHomePage {
 
   currentItems: Dish[];
   restaurant: any;
-  
+  searchKey: string;
+  isAdmin: string;
+
     constructor(public navCtrl: NavController, public dishesService: DishServiceProvider, public modalCtrl: ModalController, public navParam: NavParams, public translateService: TranslateService  ) {
       this.restaurant = this.navParam.get('restaurant');
+      this.isAdmin = this.navParam.get('isAdmin');
+      if(this.isAdmin === undefined) {
+        this.dishesService.query(this.restaurant, 'restaurantName').valueChanges().subscribe(res => {
+          this.currentItems = res;
+          console.log(this.currentItems);
+        });
+      } else {
+        this.dishesService.query(this.restaurant.username, 'restaurantKey').valueChanges().subscribe(res => {
+          this.currentItems = res;
+          console.log(this.currentItems);
+        });
+      }
       //console.log('in restaurant home');
 
       //console.log(this.restaurant);
-      this.dishesService.query(this.restaurant.username).valueChanges().subscribe(res => {
-        this.currentItems = res;
-        console.log(this.currentItems);
-      });
+      
       
     }
   
@@ -50,13 +62,11 @@ export class RestaurantHomePage {
     addModal.onDidDismiss(item => {
       if (item) {
       item.restaurantKey = this.restaurant.username;
+      item.restaurantName = this.restaurant.name;
         this.dishesService.add(item);
       }
     })
     addModal.present();
-
-
-
   }
 
   /**
