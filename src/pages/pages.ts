@@ -16,3 +16,4 @@ export const PayPage = 'PayPage';
 export const RestaurantHomePage = 'RestaurantHomePage';
 export const SignUpPage = 'SignupPage';
 export const LogonPage = 'LoginPage';
+export const CardPage = 'CardPage';
