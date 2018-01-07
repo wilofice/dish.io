@@ -12,7 +12,7 @@ import { Dish } from '../../models/dish/dish';
 @Injectable()
 export class DishServiceProvider {
 
-  private dishesListRef;
+  private dishesListRef = this.db.list<Dish>('dishes');;
   constructor(public db: AngularFireDatabase) {
     //console.log('Hello DishServiceProvider Provider');
 
@@ -33,7 +33,7 @@ export class DishServiceProvider {
   }
 
   delete(dish: Dish){
-    this.dishesListRef.delete(dish.key);
+    this.dishesListRef.remove(dish.key);
   }
 
 

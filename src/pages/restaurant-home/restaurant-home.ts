@@ -19,7 +19,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RestaurantHomePage {
 
-  currentItems: any;
+  currentItems: Dish[];
   restaurant: any;
   
     constructor(public navCtrl: NavController, public dishesService: DishServiceProvider, public modalCtrl: ModalController, public navParam: NavParams, public translateService: TranslateService  ) {
@@ -27,8 +27,11 @@ export class RestaurantHomePage {
       //console.log('in restaurant home');
 
       //console.log(this.restaurant);
-      this.dishesService.query(this.restaurant.username).valueChanges().subscribe(res => this.currentItems = res);
-
+      this.dishesService.query(this.restaurant.username).valueChanges().subscribe(res => {
+        this.currentItems = res;
+        console.log(this.currentItems);
+      });
+      
     }
   
     /** The view loaded, let's query our items for the list
@@ -46,16 +49,21 @@ export class RestaurantHomePage {
     let addModal = this.modalCtrl.create('DishCreatePage');
     addModal.onDidDismiss(item => {
       if (item) {
+      item.restaurantKey = this.restaurant.username;
         this.dishesService.add(item);
       }
     })
     addModal.present();
+
+
+
   }
 
   /**
    * Delete an item from the list of items.
    */
   deleteItem(item) {
+    console.log("Item " + item.key)
     this.dishesService.delete(item);
   }
 

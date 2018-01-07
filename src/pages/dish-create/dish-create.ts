@@ -53,12 +53,28 @@ export class DishCreatePage {
         targetHeight: 96
       }).then((data) => {
         this.form.patchValue({ 'image': 'data:image/jpg;base64,' + data });
+
       }, (err) => {
         alert('Unable to take photo');
       })
     } else {
       this.fileInput.nativeElement.click();
     }
+  }
+
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
+
+      let imageData = (readerEvent.target as any).result;
+      this.form.patchValue({ 'image': imageData });
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  getProfileImageStyle() {
+    return 'url(' + this.form.controls['image'].value + ')'
   }
 
   /**

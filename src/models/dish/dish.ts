@@ -2,8 +2,8 @@ export interface Dish {
     key?: string;
     restaurantKey: string;
     name: string;
-    kind: string;
-    price: number;
-    picture: string;
+    type: string;
+    prix: number;
+    image: string;
 
 }
