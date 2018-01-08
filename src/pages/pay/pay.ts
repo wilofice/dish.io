@@ -37,7 +37,7 @@ export class PayPage {
   
 
  processpay(){
-  //this.sms.send(this.restaurantPhone, 'Vous avez reçu une commande de ' + this.phone + ' sur Dish.io!.');
+  this.sms.send(this.restaurantPhone, 'Vous avez reçu une nouvelle commande de ' + this.phone + ' sur Dish.io!.');
   this.addCommand();
   let toast = this.toastCtrl.create({
     message: this.messageConfirmation,

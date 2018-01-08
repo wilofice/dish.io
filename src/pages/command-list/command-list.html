@@ -21,8 +21,12 @@
               <img [src]="item.image" alt="image"/>
             </ion-avatar>-->
             
-            <h2>{{item.dishName}}</h2>
-            <ion-note> Quantite: {{item.quantite}} Total: {{item.total}} </ion-note>
+            <h2>Commande {{item.dishName}}</h2>
+            <ion-note> <p>Quantite: {{item.quantite}} Total: {{item.total}}</p>  
+              <p *ngIf="item.status">En cours de traitement</p>
+              <p *ngIf="!item.status">Pas encore traite</p> 
+            </ion-note>
+
           </button>
           <ion-item-options >
             <button ion-button color="danger" (click)="deleteItem(item)">

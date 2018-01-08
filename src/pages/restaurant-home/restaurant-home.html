@@ -11,7 +11,7 @@
         <h1 *ngIf="isAdmin">{{restaurant.name}}</h1>
         <h1 *ngIf="!isAdmin">{{restaurant}}</h1>
         <ion-note>
-            <p>Description du restaurant</p><p>Note: 0</p>
+            <p>Avenue Agdal Ryad </p><p>Note: 3.7</p>
             <button *ngIf="isAdmin" ion-button color="light" (click)="showCommand()">
                 Voir mes commandes
             </button>
@@ -38,7 +38,7 @@
           </ion-avatar>
           <h2>{{item.name}}</h2>
           <ion-note item-end *ngIf="item.note">{{item.kind}}</ion-note>
-          <p>{{item.Prix}} DH</p>
+          <p>{{item.prix}} DH</p>
         </button>
         
   
