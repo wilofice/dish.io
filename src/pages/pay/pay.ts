@@ -22,7 +22,7 @@ export class PayPage {
   quantite: number;
   total: number;
   phone: string;
-  restaurantPhone = '00212605063978';
+  restaurantPhone = '00212662727688';
   nom: string; 
   prenom: string;
   addresseDeLivraison: string;
