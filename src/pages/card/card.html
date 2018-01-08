@@ -7,17 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>card</ion-title>
-    <ion-input [(ngModel)]="cardInfo.number" placeholder='your card number'></ion-input>
-    <ion-input [(ngModel)]="cardInfo.expMonth" placeholder='expiry month'></ion-input>
-    <ion-input [(ngModel)]="cardInfo.expYear"  placeholder='expiry year'></ion-input>
-    <ion-input [(ngModel)]="cardInfo.cvc" placeholder="cvc"></ion-input>
-    <button ion-button (click)="pay()">pay naw</button>
+    <ion-title>Paiement par carte</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-input [(ngModel)]="cardInfo.number" placeholder='your card number'></ion-input>
+    <ion-input [(ngModel)]="cardInfo.expMonth" placeholder='expiry month'></ion-input>
+    <ion-input [(ngModel)]="cardInfo.expYear"  placeholder='expiry year'></ion-input>
+    <ion-input [(ngModel)]="cardInfo.cvc" placeholder="cvc"></ion-input>
+    <button ion-button (click)="pay()">Payer</button>
 </ion-content>

@@ -5,6 +5,7 @@ import {Command} from '../../models/command/command.model';
 import { CommandServiceProvider } from '../../providers/command-service/command-service';
 import { HomePage, SearchPage } from '../pages';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { CardPage } from '../pages';
 /**
  * Generated class for the PayPage page.
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -48,7 +49,7 @@ export class PayPage {
   this.navCtrl.pop();
  }
  payByStipe(){
-
+  this.navCtrl.push(CardPage);
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PayPage');

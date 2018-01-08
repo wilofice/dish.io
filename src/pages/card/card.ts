@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Http, Headers}from '@angular/http';
+//import {Http, Headers}from '@angular/http';
 import {Stripe} from '@ionic-native/stripe';
 
 
@@ -18,7 +18,7 @@ import {Stripe} from '@ionic-native/stripe';
 })
 export class CardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public stripe: Stripe, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public stripe: Stripe) {
   }
 
   cardInfo: any={
@@ -32,7 +32,7 @@ export class CardPage {
   }
 
   pay() {
-      this.stripe.setPublishableKey('pk_test_bcaElprVfLsQnsXY04dNnUsZ');
+      /*this.stripe.setPublishableKey('pk_test_bcaElprVfLsQnsXY04dNnUsZ');
       this.stripe.createCardToken(this.cardInfo).then((token) => {
         var data = 'stripetoken=' + token + '&amount=50';
         var headers = new Headers();
@@ -41,6 +41,6 @@ export class CardPage {
           if (res.json().success)
           alert('transaction Successfull!!')
         })
-      })
+      })*/
     }
 }
